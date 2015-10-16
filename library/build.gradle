@@ -26,10 +26,11 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.google.code.gson:gson:2.2.4'
 }
 
-def siteUrl = ""
-def gitUrl = ""
+def siteUrl = "https://github.com/lubeast/WinchanceHttpUtil"
+def gitUrl = "https://github.com/lubeast/WinchanceHttpUtil.git"
 
 group = "com.winchance.library"
 
@@ -41,7 +42,7 @@ install {
                 packaging 'aar'
 
                 //添加项目描述
-                name 'CustomSwipeListview for Android'
+                name 'Net Utils for Winchance'
                 url siteUrl
 
                 //设置开源证书信息
@@ -54,9 +55,9 @@ install {
                 //添加开发者信息
                 developers {
                     developer {
-                        id 'xyczero'
-                        name 'xiayuncheng'
-                        email 'xyczero@sina.com'
+                        id 'lumeng'
+                        name 'lumeng'
+                        email 'jiahehz@gmail.com'
                     }
                 }
 
@@ -97,8 +98,6 @@ properties.load(project.rootProject.file('local.properties').newDataInputStream(
 bintray {
     //读取Bintray帐号和密码。
     //一般的为了保密和安全性，在项目的local.properties文件中添加两行句话即可：
-    //bintray.user=username
-    //bintray.apikey=apikey
     user = properties.getProperty("bintray.user")
     key = properties.getProperty("bintray.apikey")
 
@@ -106,7 +105,7 @@ bintray {
 
     pkg {
         repo = "maven"//上传的中央仓库名称
-        name = "CustomSwipeListview"//上传的项目的名字
+        name = "WinchanceHttpUtil"//上传的项目的名字
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]

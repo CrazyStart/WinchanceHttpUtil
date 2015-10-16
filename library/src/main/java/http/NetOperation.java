@@ -29,40 +29,41 @@ import utils.ErrorEnum;
 import utils.MODE;
 
 /**
- * Created by lumeng on 15/7/22.
+ * @author L.M
+ * @version 1.0.0
  */
 public class NetOperation {
-	private final String TAG = "MultipartPost";
-	private static final String CRLF = "\r\n";
-	private static final String BOUNDARY = "AaB03x";
+    private final String TAG = "MultipartPost";
+    private static final String CRLF = "\r\n";
+    private static final String BOUNDARY = "AaB03x";
 
     //编码格式
     static String CHARSET = "UTF-8";
     //链接
     private String url;
     //请求类型 GET, POST, PUT, DELETE
-    private  String reqKind;
+    private String reqKind;
     //传图模式
     private MODE mode;
     //用户请求
     private String userReqString = "";
     //发送数据时dataoutputstream内容
-    public  List<PostParameter> wparams =new ArrayList<PostParameter>();
+    public List<PostParameter> wparams = new ArrayList<PostParameter>();
     //参数
     private String paramsname;
     //文件路径
     private Object pathobject;
     //全局urlconnection
-    private  HttpURLConnection httpURLConnection;
+    private HttpURLConnection httpURLConnection;
     //sessionId
     private static String SESSION = "";
-    
+
     /**
-     * @param reqKind 请求类型GET, POST,PUT,DELETE
+     * @param reqKind       请求类型GET, POST,PUT,DELETE
      * @param userReqString 用户请求
-     * @param mode, 模式
-     * @param url, 链接
-     * @param pathobject, 数据
+     * @param mode          模式
+     * @param url           链接
+     * @param pathobject    数据
      */
     public NetOperation(String reqKind, String userReqString, MODE mode, String url, Object pathobject) {
         this.reqKind = reqKind;
@@ -74,9 +75,11 @@ public class NetOperation {
 
     /**
      * 网络操作
-     * @return serverBack()
+     *
+     * @return see method {@link #serverBack()}
+     * @throws Exception Exception
      */
-    public String httpOperation() throws Exception{
+    public String httpOperation() throws Exception {
 
         InputStream inputStream = null;
         /* 初始化http设置 */
@@ -98,15 +101,16 @@ public class NetOperation {
                     break;
             }
         } else {
-        	return ErrorEnum.NetMethodError.getMsg();
+            return ErrorEnum.NetMethodError.getMsg();
         }
         return serverBack();
     }
 
     /**
      * 初始化http设置
-     * @param url
-     * @param reqKind
+     *
+     * @param url     url
+     * @param reqKind request kind
      */
     private void initHttp(String url, String reqKind) throws Exception {
         if (httpURLConnection != null) {
@@ -131,12 +135,13 @@ public class NetOperation {
             httpURLConnection.setRequestProperty("Connection", "keep-alive");
         }
     }
-    
+
     /**
      * 发送数据，带文件发送数据，带文件带参数发送数据(单文件多文件同体)
-     * @throws Exception
+     *
+     * @throws Exception exception
      */
-	public void DataOutPic() throws Exception{
+    public void DataOutPic() throws Exception {
         if (paramsname != null || !"".equals(paramsname)) {
             wparams.add(new PostParameter<String>(paramsname, userReqString));
         }
@@ -152,10 +157,10 @@ public class NetOperation {
             }
         }
     }
+
     /**
-     * 
-     * @param path
-     * @throws Exception
+     * @param path file path
+     * @throws Exception Exception
      */
     private void FlushFile(String path) throws Exception {
         File FILE = new File(path);
@@ -187,46 +192,50 @@ public class NetOperation {
 
     /**
      * 如果发送数据中只含有键值对
-     * @param dos 数据流
+     *
+     * @param dos        数据流
      * @param paramValue 文字内容
-     * @throws IOException
+     * @throws IOException IOException
      */
-	private void postStringParameter(DataOutputStream dos, String paramValue) throws IOException {
-		dos.writeBytes(boundary() + CRLF);
-		dos.writeBytes("Content-Disposition: form-data; name=\"" + "paramter" + "\"" + CRLF + CRLF);
-		dos.writeBytes(paramValue + CRLF);
-	}
-	/**
-	 * 发送数据中含有文件
-	 * @param dos DataOutputStream字符输出流
-	 * @param file	文件
-	 * @param contentType 文件发送类型
-	 * @throws IOException	
-	 */
-	private void postFileParameter(DataOutputStream dos, File file, String contentType) throws Exception {
-		dos.writeBytes(boundary() + CRLF);
-		dos.writeBytes("Content-Disposition: form-data; name=\"" + "parameter" + "\"; filename=\"" + file.getName() + "\"" + CRLF);
-		dos.writeBytes("Content-Type: "+ contentType + CRLF);
+    private void postStringParameter(DataOutputStream dos, String paramValue) throws IOException {
+        dos.writeBytes(boundary() + CRLF);
+        dos.writeBytes("Content-Disposition: form-data; name=\"" + "paramter" + "\"" + CRLF + CRLF);
+        dos.writeBytes(paramValue + CRLF);
+    }
+
+    /**
+     * 发送数据中含有文件
+     *
+     * @param dos         DataOutputStream字符输出流
+     * @param file        文件
+     * @param contentType 文件发送类型
+     * @throws IOException IOException
+     */
+    private void postFileParameter(DataOutputStream dos, File file, String contentType) throws Exception {
+        dos.writeBytes(boundary() + CRLF);
+        dos.writeBytes("Content-Disposition: form-data; name=\"" + "parameter" + "\"; filename=\"" + file.getName() + "\"" + CRLF);
+        dos.writeBytes("Content-Type: " + contentType + CRLF);
 //		dos.writeBytes("Content-Transfer-Encoding: binary" + CRLF);//可要可不要
-		dos.writeBytes(CRLF);
-		FileInputStream fileInputStream = new FileInputStream(file);
-		writeData(fileInputStream, dos);
-	}
+        dos.writeBytes(CRLF);
+        FileInputStream fileInputStream = new FileInputStream(file);
+        writeData(fileInputStream, dos);
+    }
 
     /**
      * 根据mode值判断传图操作
      * 1.无文件     DataOut()
      * 2.单文件     DataOutPic()
      * 3.多文件     DataOutPics()
+     *
      * @param mode, 模式
      */
     @SuppressWarnings("unchecked")
-    private void postOperation(MODE mode) throws Exception{
+    private void postOperation(MODE mode) throws Exception {
         if (mode.equals(MODE.NOFILE)) {
             DataOut();
         } else if (mode.equals(MODE.ONEFILE)) {
             DataOutPic();
-        } else if (mode.equals(MODE.FILES)){
+        } else if (mode.equals(MODE.FILES)) {
             /* 多张图片 */
             DataOutPic();
         } else if (mode.equals(MODE.FILES_PARAMS)) {
@@ -234,20 +243,23 @@ public class NetOperation {
             DataOutPic();
         } else {
             /* 单张图片带描述 */
-        	DataOutPic();
+            DataOutPic();
         }
     }
 
     /**
      * 文件分隔符结尾
-     * @return
+     *
+     * @return string
      */
     private String closeBoundary() {
         return boundary() + "--" + CRLF;
     }
+
     /**
      * 文件分隔符
-     * @return
+     *
+     * @return string
      */
     private String boundary() {
         return "--" + BOUNDARY;
@@ -256,18 +268,21 @@ public class NetOperation {
 
     /**
      * response的Code返回值
-     * @return
-     * @throws Exception
+     *
+     * @return response code
+     * @throws Exception Exception
      */
-    public int HttpResponseCode() throws Exception{
-        int code=httpURLConnection.getResponseCode();
+    public int HttpResponseCode() throws Exception {
+        int code = httpURLConnection.getResponseCode();
         return code;
     }
 
     /**
      * 发送用户请求
+     *
+     * @throws Exception Exception
      */
-    private void DataOut() throws Exception{
+    private void DataOut() throws Exception {
         PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(httpURLConnection.getOutputStream(), Charset.forName("UTF-8")));
         printWriter.print(userReqString);
         printWriter.flush();
@@ -276,10 +291,11 @@ public class NetOperation {
 
     /**
      * 将数据存放在dataOutputStream并上传至服务器
-     * @param fileInputStream
-     * @param dataOutputStream
+     *
+     * @param fileInputStream  fileInputStream
+     * @param dataOutputStream dataOutputStream
      */
-    private static void writeData(FileInputStream fileInputStream, DataOutputStream dataOutputStream) throws Exception{
+    private static void writeData(FileInputStream fileInputStream, DataOutputStream dataOutputStream) throws Exception {
         int bytesAvailable = fileInputStream.available();
         int maxBufferSize = 1024;
         int bufferSize = Math.min(bytesAvailable, maxBufferSize);
@@ -302,7 +318,8 @@ public class NetOperation {
 
     /**
      * 服务器返回值
-     * @return
+     *
+     * @return string
      */
     private String serverBack() throws Exception {
         StringBuilder result = new StringBuilder();

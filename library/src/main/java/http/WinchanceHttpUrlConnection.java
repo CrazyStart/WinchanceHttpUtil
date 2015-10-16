@@ -12,7 +12,8 @@ import java.util.ArrayList;
 import utils.MODE;
 
 /**
- * Created by lumeng on 15/7/22.
+ * @author L.M
+ * @version 1.0.0
  */
 public class WinchanceHttpUrlConnection implements HttpUrlConnectionInterface {
 

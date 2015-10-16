@@ -10,7 +10,9 @@ package http;
 import java.util.ArrayList;
 
 /**
- * Created by lumeng on 15/7/22.
+ * @author L.M
+ * @version 1.0.0
+ * Interface of {@link java.net.HttpURLConnection}
  */
 public interface HttpUrlConnectionInterface {
 

@@ -3,9 +3,8 @@ package asynctask;
 
 /**
  * 回调接口,回调方法运行于异步线程
- * @ClassName: Callable
- * @version
- * @param <T>
+ * @version 1.0.0
+ * @param <T> callable
  */
 public interface Callable<T> {
 	
