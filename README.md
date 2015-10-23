@@ -43,9 +43,12 @@ We have the following tools:
     And then you can setBorderColor, setBorderWidth, setScaleType. It support bitmap, int , drawable.
 
 
-```
+
 ------------
+
 ###License
+
+```
 Copyright (C) 2015 LuMeng
 
 Licensed under the Apache License, Version 2.0 (the "License");
