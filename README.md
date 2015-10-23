@@ -21,10 +21,12 @@ We have the following tools:
     ```
 - ViewHolder
     We can use ViewHolder like this:
+    
     ```cpp
     public View getView(int position, View convertView, ViewGroup parent) {
          if (convertView == null) {
-             convertView = LayoutInflater.from(context).inflate(R.layout.good_list_item, null, false);
+             convertView = LayoutInflater
+             .from(context).inflate(R.layout.good_list_item, null, false);
          }
          ViewHolder mViewHolder = ViewHolder.get(convertView);
          TextView price = mViewHolder.getView(R.id.price);
