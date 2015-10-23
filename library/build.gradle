@@ -13,7 +13,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 22
         versionCode 1
-        versionName "1.0"
+        versionName version
     }
     buildTypes {
         release {
@@ -21,10 +21,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile 'com.google.code.gson:gson:2.2.4'
 }
@@ -42,7 +47,7 @@ install {
                 packaging 'aar'
 
                 //添加项目描述
-                name 'Net Utils for Winchance'
+                name 'net-utils-for-winchance'
                 url siteUrl
 
                 //设置开源证书信息
@@ -105,7 +110,7 @@ bintray {
 
     pkg {
         repo = "maven"//上传的中央仓库名称
-        name = "WinchanceHttpUtil"//上传的项目的名字
+        name = "winchance-http-util"//上传的项目的名字
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
