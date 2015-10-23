@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 LuMeng
+ * Copyright (C) 2015 LuMeng
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,36 +14,17 @@
  * limitations under the License.
  */
 
-package protocal;
+package utils;
 
-/**
- * @author L.M
- */
-public class Entity<T> {
-    private String id;
+public enum LogLevel {
 
-    private T model;
+  /**
+   * Prints all logs
+   */
+  FULL,
 
-    public Entity() {
-    }
-
-    public Entity(T model) {
-        this.model = model;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public T getModel() {
-        return model;
-    }
-
-    public void setModel(T model) {
-        this.model = model;
-    }
+  /**
+   * No log will be printed
+   */
+  NONE
 }

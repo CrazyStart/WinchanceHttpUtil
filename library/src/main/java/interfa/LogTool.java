@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 LuMeng
+ * Copyright (C) 2015 LuMeng
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,30 +14,18 @@
  * limitations under the License.
  */
 
-package protocal;
+package interfa;
 
-public enum ErrorInfo {
-    OK(200L, "OK"),
+public interface LogTool {
+  void d(String tag, String message);
 
-    NOT_LOGIN(0x1000L, "NOT LOGIN"),
+  void e(String tag, String message);
 
-    IO_EXCEPTION(0x8000L, "IO EXCEPTION"),
+  void w(String tag, String message);
 
-    UNKNOWN(0xFFFFL, "UNKNOWN");
+  void i(String tag, String message);
 
-    private final Long code;
-    private final String msg;
+  void v(String tag, String message);
 
-    private ErrorInfo(Long code, String msg) {
-        this.code = code;
-        this.msg = msg;
-    }
-
-    public Long getCode() {
-        return code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
+  void wtf(String tag, String message);
 }
