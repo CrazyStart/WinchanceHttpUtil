@@ -8,7 +8,7 @@ You can read update history in [CHANGELOG](./CHANGELOG.md)
 
 We have the following tools:
 
-- WinchaceHttpUrlConnection
+- **WinchaceHttpUrlConnection**
 
     ```cpp
     WinchaceHttpUrlConnection connection = new WinchaceHttpUrlConnection();
@@ -19,7 +19,7 @@ We have the following tools:
     connection.postWithFiles();
     connection.postWithOneFileParams();
     ```
-- ViewHolder
+- **ViewHolder**
     We can use ViewHolder like this:
     
     ```cpp
@@ -34,8 +34,9 @@ We have the following tools:
          return convertView;
     }
     ```
-- CircleImageView
+- **CircleImageView**
     You can use CircleImageView in your project directly.
+    
     ```cpp
     <view.CircleImageView />
     ```
@@ -43,6 +44,8 @@ We have the following tools:
 
 
 ```
+------------
+###License
 Copyright (C) 2015 LuMeng
 
 Licensed under the Apache License, Version 2.0 (the "License");
