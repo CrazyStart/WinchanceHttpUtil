@@ -1,5 +1,7 @@
 # WinchanceHttpUtil
 [![Download](https://api.bintray.com/packages/lubeast/maven/winchance-http-util/images/download.svg)](https://bintray.com/lubeast/maven/winchance-http-util/_latestVersion)
+[![API](https://img.shields.io/badge/API-8%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=8)
+[![Bintray](https://img.shields.io/bintray/v/asciidoctor/maven/asciidoctorj.svg)](https://bintray.com/lubeast/maven/winchance-http-util/_latestVersion)
 
 ### This project is created by Wichance Mobile Dev.
 #### We will keep updating this project
