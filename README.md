@@ -13,6 +13,7 @@ You can read update history in [CHANGELOG](./CHANGELOG.md)
 We have the following tools:
 
 - **CommonAdapter for ListView and GridView**
+
     You can write adapter in a simple way through use our **CommonAdapter**
     
     ```cpp
