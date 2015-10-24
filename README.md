@@ -1,4 +1,6 @@
 # WinchanceHttpUtil
+[![Download](https://api.bintray.com/packages/lubeast/maven/winchance-http-util/images/download.svg)](https://bintray.com/lubeast/maven/winchance-http-util/_latestVersion)
+
 ### This project is created by Wichance Mobile Dev.
 #### We will keep updating this project
 
