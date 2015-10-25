@@ -70,7 +70,7 @@ We have the following tools:
 
 - **L**
 
-    This is a log util depends on [orhanobut](https://jitpack.io/#orhanobut/logger/1.12)
+    This is a log util depends on [orhanobut](https://github.com/orhanobut/logger)
     And you can watch [L](./L.md) for detail
 
 ------------
