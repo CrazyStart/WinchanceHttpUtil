@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-package utils;
-
-import interfa.Printer;
+package L;
 
 /**
  * Logger is a wrapper of {@link android.util.Log}

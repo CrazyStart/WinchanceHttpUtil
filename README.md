@@ -1,7 +1,8 @@
 # WinchanceHttpUtil
-[![Download](https://api.bintray.com/packages/lubeast/maven/winchance-http-util/images/download.svg)](https://bintray.com/lubeast/maven/winchance-http-util/_latestVersion)
 [![API](https://img.shields.io/badge/API-8%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=8)
-[![Bintray](https://img.shields.io/bintray/v/asciidoctor/maven/asciidoctorj.svg)](https://bintray.com/lubeast/maven/winchance-http-util/_latestVersion)
+[![Bintray](https://img.shields.io/bintray/v/lubeast/maven/winchance-http-util.svg)](https://bintray.com/lubeast/maven/winchance-http-util/_latestVersion)
+[![Twitter](https://img.shields.io/badge/Twitter-@LuMengHZ-blue.svg?style=flat)](http://twitter.com/LuMengHZ)
+![License](https://img.shields.io/github/license/lubeast/WinchanceHttpUtil.svg)
 
 ### This project is created by Wichance Mobile Dev.
 #### We will keep updating this project
@@ -11,6 +12,25 @@
 You can read update history in [CHANGELOG](./CHANGELOG.md)
 
 We have the following tools:
+
+- **CommonAdapter for ListView and GridView**
+
+    You can write adapter in a simple way through use our **CommonAdapter**
+    
+    ```cpp
+        ListView listView = (ListView) findViewById(R.id.listview);
+        listView.setAdapter(new CommonAdapter<Bean>(  
+                        getApplicationContext(), mDatas, R.layout.item_list)  {  
+            @Override  
+            public void convert(ViewHolder helper, Bean item) {  
+                helper.setText(R.id.tv_title, item.getTitle());  
+                helper.setText(R.id.tv_describe, item.getDesc());  
+                helper.setText(R.id.tv_phone, item.getPhone());  
+                helper.setText(R.id.tv_time, item.getTime());  
+                // helper.getView(R.id.tv_title).setOnClickListener(l)  
+                    }  
+                });
+    ```
 
 - **WinchaceHttpUrlConnection**
 
@@ -50,8 +70,16 @@ We have the following tools:
 
 - **L**
 
-    This is a log util depends on [orhanobut](https://jitpack.io/#orhanobut/logger/1.12)
+    This is a log util depends on [orhanobut](https://github.com/orhanobut/logger)
     And you can watch [L](./L.md) for detail
+    
+    **But I made changes in the basis of Orihanobut** according to kale's ideas
+    
+    **Attention**
+    > You should ```L.init();``` before you use L to print log.
+    And you can ```L.init("TAG");``` to init your TAG;
+    
+    The difference between orihanobut's and mine is L can print Object.Just Try it
 
 ------------
 

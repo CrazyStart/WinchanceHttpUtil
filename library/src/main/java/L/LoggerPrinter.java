@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package utils;
+package L;
 
 import android.text.TextUtils;
 import android.util.Pair;
@@ -37,8 +37,6 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
-
-import interfa.Printer;
 
 /**
  * Logger is a wrapper for logging utils But more pretty, simple and powerful

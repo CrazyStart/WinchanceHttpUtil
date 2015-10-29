@@ -14,17 +14,18 @@
  * limitations under the License.
  */
 
-package utils;
+package L;
 
-public enum LogLevel {
+public interface LogTool {
+  void d(String tag, String message);
 
-  /**
-   * Prints all logs
-   */
-  FULL,
+  void e(String tag, String message);
 
-  /**
-   * No log will be printed
-   */
-  NONE
+  void w(String tag, String message);
+
+  void i(String tag, String message);
+
+  void v(String tag, String message);
+
+  void wtf(String tag, String message);
 }

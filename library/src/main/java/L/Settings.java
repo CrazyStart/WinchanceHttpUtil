@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-package utils;
-
-import interfa.LogTool;
+package L;
 
 public final class Settings {
 

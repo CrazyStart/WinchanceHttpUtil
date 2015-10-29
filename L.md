@@ -15,7 +15,7 @@ https://jitpack.io/#orhanobut/logger/1.12
 
 ```groovy
 dependencies {
-  compile 'com.winchance.library:library:1.0.2'
+  compile 'com.winchance.library:library:1.0.3'
 }
 ```
 

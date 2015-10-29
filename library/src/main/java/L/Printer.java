@@ -14,18 +14,35 @@
  * limitations under the License.
  */
 
-package interfa;
+package L;
 
-public interface LogTool {
-  void d(String tag, String message);
+public interface Printer {
 
-  void e(String tag, String message);
+  Printer t(String tag, int methodCount);
 
-  void w(String tag, String message);
+  Settings init(String tag);
 
-  void i(String tag, String message);
+  Settings getSettings();
 
-  void v(String tag, String message);
+  void d(String message, Object... args);
 
-  void wtf(String tag, String message);
+  void e(String message, Object... args);
+
+  void e(Throwable throwable, String message, Object... args);
+
+  void w(String message, Object... args);
+
+  void i(String message, Object... args);
+
+  void v(String message, Object... args);
+
+  void wtf(String message, Object... args);
+
+  void json(String json);
+
+  void xml(String xml);
+
+  void object(Object object);
+
+  void clear();
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package utils;
+package http;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
@@ -23,9 +23,6 @@ import com.google.gson.JsonSyntaxException;
 import java.io.Reader;
 import java.lang.reflect.Type;
 
-/**
- * 工具类,将字符串转为gson或者将gson转为字符串
- */
 public class GsonConvertor {
 
     private static final ThreadLocal<Gson> gsonLocal = new ThreadLocal<Gson>(){

@@ -1,4 +1,4 @@
-package view;
+package circleimageview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
