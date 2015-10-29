@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package adapter;
+package commonadapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -24,7 +24,7 @@ import android.widget.BaseAdapter;
 
 import java.util.List;
 
-import widget.ViewHolder;
+import commonadapter.ViewHolder;
 
 /**
  * We just leave a {@link #convert(ViewHolder, Object)} method for inheritor.

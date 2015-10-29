@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
-package widget;
+package commonadapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.text.Layout;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;

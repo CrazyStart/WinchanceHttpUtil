@@ -7,7 +7,7 @@ android {
     buildToolsVersion "22.0.1"
     resourcePrefix "winchance"
 
-    version = "1.0.1"
+    version = "1.0.2"
 
     defaultConfig {
         minSdkVersion 8
@@ -30,8 +30,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:22.2.1'
-    compile 'com.google.code.gson:gson:2.2.4'
 }
 
 def siteUrl = "https://github.com/lubeast/WinchanceHttpUtil"

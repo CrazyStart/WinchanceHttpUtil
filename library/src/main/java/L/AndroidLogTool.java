@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package utils;
+package L;
 
 import android.util.Log;
 
-import interfa.LogTool;
+import utils.L;
 
 public class AndroidLogTool implements LogTool {
   @Override public void d(String tag, String message) {
