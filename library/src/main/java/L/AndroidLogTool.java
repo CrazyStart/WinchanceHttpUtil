@@ -18,8 +18,6 @@ package L;
 
 import android.util.Log;
 
-import utils.L;
-
 public class AndroidLogTool implements LogTool {
   @Override public void d(String tag, String message) {
     Log.d(tag, message);
